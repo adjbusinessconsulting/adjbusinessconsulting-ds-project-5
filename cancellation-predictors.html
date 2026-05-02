@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predictor — Three Real Bookings</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0e0e14;
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  }
+  .slide-wrap {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide-wrap">
+<div style="width: 100%; height: 100%; background: transparent; color: #d0d0d0; padding: 2.5% 4%; box-sizing: border-box; display: flex; flex-direction: column; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;">
+
+  <div style="margin-bottom: 1.4%;">
+    <p style="font-size: clamp(7px, 0.82vw, 10px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #5dcaa5; margin: 0 0 0.6em;">Main Project · Predictor in Action</p>
+    <h1 style="font-size: clamp(13px, 1.8vw, 24px); font-weight: 700; color: #ffffff; margin: 0; line-height: 1.25;">Three real test-set bookings — <span style="color: #5dcaa5;">scored by the deployed model</span></h1>
+    <div style="width: 36px; height: 3px; background: #5dcaa5; border-radius: 2px; margin: 0.7em 0 0;"></div>
+  </div>
+
+  <div style="flex: 1; display: grid; grid-template-columns: 28% 1fr; gap: 1.6%;">
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <div style="background: rgba(93, 202, 165, 0.1); border: 1px solid rgba(93, 202, 165, 0.35); border-radius: 8px; padding: 12px 14px;">
+        <p style="font-size: clamp(7px, 0.7vw, 9px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #5dcaa5; margin: 0 0 6px;">Decision rule</p>
+        <p style="font-size: clamp(15px, 1.6vw, 22px); font-weight: 700; color: #ffffff; line-height: 1.15; margin: 0 0 6px;">if proba ≥ 0.436 → flag for re-confirm</p>
+        <p style="font-size: clamp(8px, 0.82vw, 11px); color: #aaa; margin: 0; line-height: 1.4;">Random Forest output passes through a single threshold check. Flagged bookings route to operations.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 10px 12px;">
+          <p style="font-size: clamp(7px, 0.62vw, 9px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin: 0 0 4px;">Inputs</p>
+          <p style="font-size: clamp(13px, 1.25vw, 18px); font-weight: 700; color: #ffffff; margin: 0 0 2px; line-height: 1.1;">68</p>
+          <p style="font-size: clamp(7px, 0.68vw, 9px); color: #888; margin: 0; line-height: 1.3;">Encoded features</p>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 10px 12px;">
+          <p style="font-size: clamp(7px, 0.62vw, 9px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin: 0 0 4px;">Output</p>
+          <p style="font-size: clamp(13px, 1.25vw, 18px); font-weight: 700; color: #ffffff; margin: 0 0 2px; line-height: 1.1;">0.00–1.00</p>
+          <p style="font-size: clamp(7px, 0.68vw, 9px); color: #888; margin: 0; line-height: 1.3;">Cancel probability</p>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 10px 12px;">
+          <p style="font-size: clamp(7px, 0.62vw, 9px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin: 0 0 4px;">Latency</p>
+          <p style="font-size: clamp(13px, 1.25vw, 18px); font-weight: 700; color: #ffffff; margin: 0 0 2px; line-height: 1.1;">&lt;5ms</p>
+          <p style="font-size: clamp(7px, 0.68vw, 9px); color: #888; margin: 0; line-height: 1.3;">Per booking</p>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 10px 12px;">
+          <p style="font-size: clamp(7px, 0.62vw, 9px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin: 0 0 4px;">Re-score</p>
+          <p style="font-size: clamp(13px, 1.25vw, 18px); font-weight: 700; color: #ffffff; margin: 0 0 2px; line-height: 1.1;">T-30</p>
+          <p style="font-size: clamp(7px, 0.68vw, 9px); color: #888; margin: 0; line-height: 1.3;">Days before arrival</p>
+        </div>
+      </div>
+
+      <div style="background: rgba(255, 255, 255, 0.04); border-left: 3px solid #5dcaa5; border-radius: 0 6px 6px 0; padding: 12px 14px 14px;">
+        <p style="font-size: clamp(7px, 0.7vw, 9px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #5dcaa5; margin: 0 0 5px;">Business insight</p>
+        <p style="font-size: clamp(8px, 0.78vw, 10.5px); color: #d0d0d0; line-height: 1.45; margin: 0;">These are real bookings from the held-out test set, scored by the actual deployed model — not hand-picked illustrations. Two flagged, one cleared.</p>
+      </div>
+
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+      <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+
+        <div style="background: rgba(224, 90, 58, 0.08); border: 1px solid rgba(224, 90, 58, 0.4); border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <p style="font-size: clamp(7.5px, 0.72vw, 10px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #e05a3a; margin: 0;">Booking #2179</p>
+            <span style="background: #e05a3a; color: #fff; font-size: clamp(7px, 0.68vw, 9.5px); font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.05em;">FLAG</span>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px 12px; margin-bottom: 8px;">
+            <p style="font-size: clamp(7px, 0.7vw, 9.5px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 4px;">Inputs</p>
+            <div style="font-size: clamp(7.5px, 0.74vw, 10px); color: #d0d0d0; line-height: 1.55;">
+              <div style="display: flex; justify-content: space-between;"><span>lead_time</span><span style="color: #fff; font-weight: 700;">129 days</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>market_segment</span><span style="color: #fff; font-weight: 700;">Groups</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>customer_type</span><span style="color: #fff; font-weight: 700;">Transient</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>special_requests</span><span style="color: #fff; font-weight: 700;">0</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>booking_changes</span><span style="color: #fff; font-weight: 700;">0</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>parking</span><span style="color: #fff; font-weight: 700;">No</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>adr × nights</span><span style="color: #fff; font-weight: 700;">$130 × 3</span></div>
+            </div>
+          </div>
+
+          <div style="margin-top: auto;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 3px;">
+              <span style="font-size: clamp(7px, 0.7vw, 9.5px); color: #aaa; font-weight: 700;">P(cancel)</span>
+              <span style="font-size: clamp(11px, 1.05vw, 15px); color: #ffffff; font-weight: 700;">0.98</span>
+            </div>
+            <div style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 2px; position: relative; margin-bottom: 4px;">
+              <div style="position: absolute; left: 0; top: 0; height: 100%; width: 98%; background: #e05a3a; border-radius: 2px;"></div>
+              <div style="position: absolute; left: 43.6%; top: -2px; width: 1px; height: 12px; background: #fff;"></div>
+            </div>
+            <p style="font-size: clamp(6.5px, 0.65vw, 9px); color: #888; margin: 0; line-height: 1.3;">Threshold 0.436 ↑</p>
+            <p style="font-size: clamp(7px, 0.7vw, 9.5px); color: #5dcaa5; margin: 8px 0 0; font-weight: 700;">✓ Actual outcome: canceled</p>
+          </div>
+        </div>
+
+        <div style="background: rgba(212, 160, 23, 0.08); border: 1px solid rgba(212, 160, 23, 0.4); border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <p style="font-size: clamp(7.5px, 0.72vw, 10px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #d4a017; margin: 0;">Booking #15</p>
+            <span style="background: #d4a017; color: #fff; font-size: clamp(7px, 0.68vw, 9.5px); font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.05em;">FLAG</span>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px 12px; margin-bottom: 8px;">
+            <p style="font-size: clamp(7px, 0.7vw, 9.5px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 4px;">Inputs</p>
+            <div style="font-size: clamp(7.5px, 0.74vw, 10px); color: #d0d0d0; line-height: 1.55;">
+              <div style="display: flex; justify-content: space-between;"><span>lead_time</span><span style="color: #fff; font-weight: 700;">95 days</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>market_segment</span><span style="color: #fff; font-weight: 700;">Online TA</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>customer_type</span><span style="color: #fff; font-weight: 700;">Transient</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>special_requests</span><span style="color: #fff; font-weight: 700;">1</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>booking_changes</span><span style="color: #fff; font-weight: 700;">0</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>parking</span><span style="color: #fff; font-weight: 700;">No</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>adr × nights</span><span style="color: #fff; font-weight: 700;">$105 × 5</span></div>
+            </div>
+          </div>
+
+          <div style="margin-top: auto;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 3px;">
+              <span style="font-size: clamp(7px, 0.7vw, 9.5px); color: #aaa; font-weight: 700;">P(cancel)</span>
+              <span style="font-size: clamp(11px, 1.05vw, 15px); color: #ffffff; font-weight: 700;">0.45</span>
+            </div>
+            <div style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 2px; position: relative; margin-bottom: 4px;">
+              <div style="position: absolute; left: 0; top: 0; height: 100%; width: 45%; background: #d4a017; border-radius: 2px;"></div>
+              <div style="position: absolute; left: 43.6%; top: -2px; width: 1px; height: 12px; background: #fff;"></div>
+            </div>
+            <p style="font-size: clamp(6.5px, 0.65vw, 9px); color: #888; margin: 0; line-height: 1.3;">Threshold 0.436 ↑ — barely above</p>
+            <p style="font-size: clamp(7px, 0.7vw, 9.5px); color: #5dcaa5; margin: 8px 0 0; font-weight: 700;">✓ Actual outcome: canceled</p>
+          </div>
+        </div>
+
+        <div style="background: rgba(29, 158, 117, 0.08); border: 1px solid rgba(29, 158, 117, 0.4); border-radius: 8px; padding: 12px 14px; display: flex; flex-direction: column;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <p style="font-size: clamp(7.5px, 0.72vw, 10px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #1d9e75; margin: 0;">Booking #365</p>
+            <span style="background: #1d9e75; color: #fff; font-size: clamp(7px, 0.68vw, 9.5px); font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.05em;">CLEAR</span>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.2); border-radius: 6px; padding: 10px 12px; margin-bottom: 8px;">
+            <p style="font-size: clamp(7px, 0.7vw, 9.5px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 4px;">Inputs</p>
+            <div style="font-size: clamp(7.5px, 0.74vw, 10px); color: #d0d0d0; line-height: 1.55;">
+              <div style="display: flex; justify-content: space-between;"><span>lead_time</span><span style="color: #fff; font-weight: 700;">7 days</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>market_segment</span><span style="color: #fff; font-weight: 700;">Online TA</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>customer_type</span><span style="color: #fff; font-weight: 700;">Transient</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>special_requests</span><span style="color: #fff; font-weight: 700;">2</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>booking_changes</span><span style="color: #fff; font-weight: 700;">0</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>parking</span><span style="color: #fff; font-weight: 700;">No</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>adr × nights</span><span style="color: #fff; font-weight: 700;">$48 × 2</span></div>
+            </div>
+          </div>
+
+          <div style="margin-top: auto;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 3px;">
+              <span style="font-size: clamp(7px, 0.7vw, 9.5px); color: #aaa; font-weight: 700;">P(cancel)</span>
+              <span style="font-size: clamp(11px, 1.05vw, 15px); color: #ffffff; font-weight: 700;">0.06</span>
+            </div>
+            <div style="height: 8px; background: rgba(255,255,255,0.06); border-radius: 2px; position: relative; margin-bottom: 4px;">
+              <div style="position: absolute; left: 0; top: 0; height: 100%; width: 6%; background: #1d9e75; border-radius: 2px;"></div>
+              <div style="position: absolute; left: 43.6%; top: -2px; width: 1px; height: 12px; background: #fff;"></div>
+            </div>
+            <p style="font-size: clamp(6.5px, 0.65vw, 9px); color: #888; margin: 0; line-height: 1.3;">Threshold 0.436 — well below</p>
+            <p style="font-size: clamp(7px, 0.7vw, 9.5px); color: #5dcaa5; margin: 8px 0 0; font-weight: 700;">✓ Actual outcome: honored</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+</body>
+</html>
